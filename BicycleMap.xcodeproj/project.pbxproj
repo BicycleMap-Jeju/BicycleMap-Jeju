@@ -19,6 +19,7 @@
 		4ECAAF901FDC13B900C74351 /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = 4ECAAF8F1FDC13B900C74351 /* Scripts */; };
 		4ECAAF931FDC148A00C74351 /* NMapViewResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAAF921FDC148A00C74351 /* NMapViewResources.swift */; };
 		4ECAAF951FDC151700C74351 /* ViewController+NMapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAAF941FDC151700C74351 /* ViewController+NMapDelegate.swift */; };
+		4ECAAF971FDD456600C74351 /* JejuRentalInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 4ECAAF961FDD456600C74351 /* JejuRentalInfo.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,6 +51,7 @@
 		4ECAAF8F1FDC13B900C74351 /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
 		4ECAAF921FDC148A00C74351 /* NMapViewResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMapViewResources.swift; sourceTree = "<group>"; };
 		4ECAAF941FDC151700C74351 /* ViewController+NMapDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+NMapDelegate.swift"; sourceTree = "<group>"; };
+		4ECAAF961FDD456600C74351 /* JejuRentalInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JejuRentalInfo.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 		4ECAAF7E1FDBC7BA00C74351 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4ECAAF961FDD456600C74351 /* JejuRentalInfo.json */,
 				4ECAAF731FDBC11100C74351 /* LaunchScreen.storyboard */,
 				4ECAAF671FDBC11100C74351 /* AppDelegate.swift */,
 				4ECAAF6E1FDBC11100C74351 /* BicycleMap.xcdatamodeld */,
@@ -190,6 +193,7 @@
 				4ECAAF721FDBC11100C74351 /* Assets.xcassets in Resources */,
 				4ECAAF6D1FDBC11100C74351 /* Main.storyboard in Resources */,
 				4ECAAF901FDC13B900C74351 /* Scripts in Resources */,
+				4ECAAF971FDD456600C74351 /* JejuRentalInfo.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
