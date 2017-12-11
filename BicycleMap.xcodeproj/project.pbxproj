@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0160740B0E472D8136F8A6F2 /* Pods_BicycleMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8B6C4CE73275E8C2CBE7309 /* Pods_BicycleMap.framework */; };
 		4ECAAF681FDBC11100C74351 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAAF671FDBC11100C74351 /* AppDelegate.swift */; };
 		4ECAAF6A1FDBC11100C74351 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAAF691FDBC11100C74351 /* ViewController.swift */; };
 		4ECAAF6D1FDBC11100C74351 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ECAAF6B1FDBC11100C74351 /* Main.storyboard */; };
@@ -20,6 +21,8 @@
 		4ECAAF931FDC148A00C74351 /* NMapViewResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAAF921FDC148A00C74351 /* NMapViewResources.swift */; };
 		4ECAAF951FDC151700C74351 /* ViewController+NMapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAAF941FDC151700C74351 /* ViewController+NMapDelegate.swift */; };
 		4ECAAF971FDD456600C74351 /* JejuRentalInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 4ECAAF961FDD456600C74351 /* JejuRentalInfo.json */; };
+		4ECAAF9C1FDD517700C74351 /* Rental.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAAF9B1FDD517700C74351 /* Rental.swift */; };
+		4ECAAF9F1FDD57A900C74351 /* RentalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAAF9E1FDD57A900C74351 /* RentalController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +40,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4058B1D823CE13C79B701686 /* Pods-BicycleMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BicycleMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BicycleMap/Pods-BicycleMap.debug.xcconfig"; sourceTree = "<group>"; };
 		4ECAAF641FDBC11100C74351 /* BicycleMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BicycleMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ECAAF671FDBC11100C74351 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4ECAAF691FDBC11100C74351 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +56,10 @@
 		4ECAAF921FDC148A00C74351 /* NMapViewResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMapViewResources.swift; sourceTree = "<group>"; };
 		4ECAAF941FDC151700C74351 /* ViewController+NMapDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+NMapDelegate.swift"; sourceTree = "<group>"; };
 		4ECAAF961FDD456600C74351 /* JejuRentalInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JejuRentalInfo.json; sourceTree = "<group>"; };
+		4ECAAF9B1FDD517700C74351 /* Rental.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rental.swift; sourceTree = "<group>"; };
+		4ECAAF9E1FDD57A900C74351 /* RentalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentalController.swift; sourceTree = "<group>"; };
+		94022CEA42C9D4D0FA600A10 /* Pods-BicycleMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BicycleMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-BicycleMap/Pods-BicycleMap.release.xcconfig"; sourceTree = "<group>"; };
+		F8B6C4CE73275E8C2CBE7309 /* Pods_BicycleMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BicycleMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +69,7 @@
 			files = (
 				4ECAAF8C1FDC12EB00C74351 /* NMapViewerSDK.framework in Frameworks */,
 				4ECAAF801FDC0B4100C74351 /* ApiGatewayMac.framework in Frameworks */,
+				0160740B0E472D8136F8A6F2 /* Pods_BicycleMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +82,7 @@
 				4ECAAF661FDBC11100C74351 /* BicycleMap */,
 				4ECAAF651FDBC11100C74351 /* Products */,
 				4ECAAF831FDC0B6700C74351 /* Frameworks */,
+				5C3439F4F2C5B3F46AADF735 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +100,8 @@
 				4ECAAF8F1FDC13B900C74351 /* Scripts */,
 				4ECAAF7E1FDBC7BA00C74351 /* Supporting Files */,
 				4ECAAF7C1FDBC72900C74351 /* Resources */,
+				4ECAAF981FDD513700C74351 /* Model */,
+				4ECAAF9D1FDD578B00C74351 /* DataController */,
 				4ECAAF691FDBC11100C74351 /* ViewController.swift */,
 				4ECAAF941FDC151700C74351 /* ViewController+NMapDelegate.swift */,
 				4ECAAF6B1FDBC11100C74351 /* Main.storyboard */,
@@ -124,8 +136,34 @@
 			children = (
 				4ECAAF8B1FDC12EB00C74351 /* NMapViewerSDK.framework */,
 				4ECAAF7F1FDC0B4100C74351 /* ApiGatewayMac.framework */,
+				F8B6C4CE73275E8C2CBE7309 /* Pods_BicycleMap.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4ECAAF981FDD513700C74351 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4ECAAF9B1FDD517700C74351 /* Rental.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4ECAAF9D1FDD578B00C74351 /* DataController */ = {
+			isa = PBXGroup;
+			children = (
+				4ECAAF9E1FDD57A900C74351 /* RentalController.swift */,
+			);
+			name = DataController;
+			sourceTree = "<group>";
+		};
+		5C3439F4F2C5B3F46AADF735 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4058B1D823CE13C79B701686 /* Pods-BicycleMap.debug.xcconfig */,
+				94022CEA42C9D4D0FA600A10 /* Pods-BicycleMap.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,11 +173,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4ECAAF791FDBC11100C74351 /* Build configuration list for PBXNativeTarget "BicycleMap" */;
 			buildPhases = (
+				8C16C8C73866FCE30CA1B63C /* [CP] Check Pods Manifest.lock */,
 				4ECAAF601FDBC11100C74351 /* Sources */,
 				4ECAAF611FDBC11100C74351 /* Frameworks */,
 				4ECAAF621FDBC11100C74351 /* Resources */,
 				4ECAAF821FDC0B4100C74351 /* Embed Frameworks */,
 				4ECAAF881FDC0D0A00C74351 /* Run Script */,
+				92408993DD8A32D351DB3BA1 /* [CP] Embed Pods Frameworks */,
+				8B1AFCC256DD9E73C8CE26DD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,6 +255,57 @@
 			shellPath = /bin/sh;
 			shellScript = "/Users/seonghohong/Workspace/BicycleMap/BicycleMap/Scripts/strip-frameworks.sh";
 		};
+		8B1AFCC256DD9E73C8CE26DD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BicycleMap/Pods-BicycleMap-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C16C8C73866FCE30CA1B63C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BicycleMap-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		92408993DD8A32D351DB3BA1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BicycleMap/Pods-BicycleMap-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BicycleMap/Pods-BicycleMap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -223,9 +315,11 @@
 			files = (
 				4ECAAF931FDC148A00C74351 /* NMapViewResources.swift in Sources */,
 				4ECAAF951FDC151700C74351 /* ViewController+NMapDelegate.swift in Sources */,
+				4ECAAF9F1FDD57A900C74351 /* RentalController.swift in Sources */,
 				4ECAAF6A1FDBC11100C74351 /* ViewController.swift in Sources */,
 				4ECAAF681FDBC11100C74351 /* AppDelegate.swift in Sources */,
 				4ECAAF701FDBC11100C74351 /* BicycleMap.xcdatamodeld in Sources */,
+				4ECAAF9C1FDD517700C74351 /* Rental.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +454,7 @@
 		};
 		4ECAAF7A1FDBC11100C74351 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4058B1D823CE13C79B701686 /* Pods-BicycleMap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -389,6 +484,7 @@
 		};
 		4ECAAF7B1FDBC11100C74351 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94022CEA42C9D4D0FA600A10 /* Pods-BicycleMap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
