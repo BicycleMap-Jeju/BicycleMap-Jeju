@@ -22,6 +22,30 @@ extension ViewController: NMapViewDelegate {
             print("onMapView:initHandler: \(error.description)")
         }
     }
+    
+    func addMarker() {
+        guard let rentalList = self.rentalList else { return }
+        
+        if let mapOverlayManager = mapView?.mapOverlayManager {
+            
+            if let poiDataOverlay = mapOverlayManager.newPOIdataOverlay() {
+                
+                poiDataOverlay.initPOIdata(Int32(rentalList.count))
+                
+                for (idx, rental) in rentalList.enumerated() {
+                    let markerLocation = NGeoPoint(longitude: rental.longitude, latitude: rental.latitude)
+                    let poiItem = poiDataOverlay.addPOIitem(atLocation: markerLocation, title: rental.name, type: UserPOIflagTypeDefault, iconIndex: Int32(idx), with: nil)
+                    
+                    poiItem?.setPOIflagMode(.fixed)
+                    poiItem?.hasRightCalloutAccessory = false
+                }
+                
+                poiDataOverlay.endPOIdata()
+                poiDataOverlay.selectPOIitem(at: 0, moveToCenter: true)
+                poiDataOverlay.showAllPOIdata()
+            }
+        }
+    }
 }
 
 extension ViewController: NMapPOIdataOverlayDelegate {

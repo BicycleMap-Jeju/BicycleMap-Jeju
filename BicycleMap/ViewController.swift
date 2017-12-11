@@ -13,6 +13,9 @@ class ViewController: UIViewController {
     var mapView: NMapView?
     var changeStateButton: UIButton?
     var currentLocationFlag = false
+    var rentalList: [Rental]?
+    
+    let rentalController = RentalController()
     
     enum state {
         case disabled
@@ -40,6 +43,15 @@ class ViewController: UIViewController {
                 mapView.addSubview(button)
             }
         }
+        
+        rentalList = rentalController.getRental(info: "JejuRentalInfo")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        mapView?.viewDidAppear()
+        
+        addMarker()
     }
 
     override func didReceiveMemoryWarning() {
