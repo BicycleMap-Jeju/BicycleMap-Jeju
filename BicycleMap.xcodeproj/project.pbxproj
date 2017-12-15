@@ -25,11 +25,13 @@
 		4ECAAFA51FDE55EB00C74351 /* RentalCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ECAAFA31FDE55EB00C74351 /* RentalCollectionViewCell.xib */; };
 		4ECAAFA71FDE57EC00C74351 /* ViewController+CollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAAFA61FDE57EC00C74351 /* ViewController+CollectionViewDelegate.swift */; };
 		4ECAAFA91FE39A4A00C74351 /* NMapViewerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECAAFA81FE39A4A00C74351 /* NMapViewerSDK.framework */; };
-		4ECAAFAB1FE3B51500C74351 /* CrawlerRentalInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 4ECAAFAA1FE3B51400C74351 /* CrawlerRentalInfo.json */; };
-		4ECAAFAD1FE4018E00C74351 /* CertificateCenterInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 4ECAAFAC1FE4018E00C74351 /* CertificateCenterInfo.json */; };
 		4ECAAFAF1FE401A600C74351 /* Certificationcenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAAFAE1FE401A600C74351 /* Certificationcenter.swift */; };
 		4ECAAFB11FE4079C00C74351 /* Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAAFB01FE4079C00C74351 /* Center.swift */; };
 		4ECAAFB31FE408C100C74351 /* CenterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAAFB21FE408C100C74351 /* CenterController.swift */; };
+		FF26C9C71FE43E28001735E1 /* CertificateCenterInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = FF26C9C61FE43E28001735E1 /* CertificateCenterInfo.json */; };
+		FF26C9C91FE43E3C001735E1 /* CrawlerRentalInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = FF26C9C81FE43E3C001735E1 /* CrawlerRentalInfo.json */; };
+		FF26C9CB1FE43F0F001735E1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF26C9CA1FE43F0F001735E1 /* DetailViewController.swift */; };
+		FF26C9CD1FE43F3F001735E1 /* DetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF26C9CC1FE43F3F001735E1 /* DetailStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -67,13 +69,15 @@
 		4ECAAFA31FDE55EB00C74351 /* RentalCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RentalCollectionViewCell.xib; sourceTree = "<group>"; };
 		4ECAAFA61FDE57EC00C74351 /* ViewController+CollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+CollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		4ECAAFA81FE39A4A00C74351 /* NMapViewerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NMapViewerSDK.framework; path = "../../Desktop/maps.ios-master 2 오후 5.37.13/Frameworks/NMapViewerSDK.framework"; sourceTree = "<group>"; };
-		4ECAAFAA1FE3B51400C74351 /* CrawlerRentalInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CrawlerRentalInfo.json; path = ../../../Desktop/CrawlerRentalInfo.json; sourceTree = "<group>"; };
-		4ECAAFAC1FE4018E00C74351 /* CertificateCenterInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CertificateCenterInfo.json; path = ../../../Desktop/CertificateCenterInfo.json; sourceTree = "<group>"; };
 		4ECAAFAE1FE401A600C74351 /* Certificationcenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Certificationcenter.swift; sourceTree = "<group>"; };
 		4ECAAFB01FE4079C00C74351 /* Center.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Center.swift; sourceTree = "<group>"; };
 		4ECAAFB21FE408C100C74351 /* CenterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterController.swift; sourceTree = "<group>"; };
 		94022CEA42C9D4D0FA600A10 /* Pods-BicycleMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BicycleMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-BicycleMap/Pods-BicycleMap.release.xcconfig"; sourceTree = "<group>"; };
 		F8B6C4CE73275E8C2CBE7309 /* Pods_BicycleMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BicycleMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF26C9C61FE43E28001735E1 /* CertificateCenterInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CertificateCenterInfo.json; path = ../../Downloads/CertificateCenterInfo.json; sourceTree = "<group>"; };
+		FF26C9C81FE43E3C001735E1 /* CrawlerRentalInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CrawlerRentalInfo.json; path = ../../Downloads/CrawlerRentalInfo.json; sourceTree = "<group>"; };
+		FF26C9CA1FE43F0F001735E1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		FF26C9CC1FE43F3F001735E1 /* DetailStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,8 @@
 				4ECAAFA61FDE57EC00C74351 /* ViewController+CollectionViewDelegate.swift */,
 				4ECAAFA21FDE55EB00C74351 /* RentalCollectionViewCell.swift */,
 				4ECAAF6B1FDBC11100C74351 /* Main.storyboard */,
+				FF26C9CA1FE43F0F001735E1 /* DetailViewController.swift */,
+				FF26C9CC1FE43F3F001735E1 /* DetailStoryboard.storyboard */,
 				4ECAAFA31FDE55EB00C74351 /* RentalCollectionViewCell.xib */,
 			);
 			path = BicycleMap;
@@ -137,8 +143,8 @@
 		4ECAAF7E1FDBC7BA00C74351 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4ECAAFAC1FE4018E00C74351 /* CertificateCenterInfo.json */,
-				4ECAAFAA1FE3B51400C74351 /* CrawlerRentalInfo.json */,
+				FF26C9C81FE43E3C001735E1 /* CrawlerRentalInfo.json */,
+				FF26C9C61FE43E28001735E1 /* CertificateCenterInfo.json */,
 				4ECAAF961FDD456600C74351 /* JejuRentalInfo.json */,
 				4ECAAF731FDBC11100C74351 /* LaunchScreen.storyboard */,
 				4ECAAF671FDBC11100C74351 /* AppDelegate.swift */,
@@ -253,12 +259,13 @@
 			files = (
 				4ECAAF751FDBC11100C74351 /* LaunchScreen.storyboard in Resources */,
 				4ECAAF721FDBC11100C74351 /* Assets.xcassets in Resources */,
-				4ECAAFAD1FE4018E00C74351 /* CertificateCenterInfo.json in Resources */,
-				4ECAAFAB1FE3B51500C74351 /* CrawlerRentalInfo.json in Resources */,
+				FF26C9CD1FE43F3F001735E1 /* DetailStoryboard.storyboard in Resources */,
 				4ECAAFA51FDE55EB00C74351 /* RentalCollectionViewCell.xib in Resources */,
 				4ECAAF6D1FDBC11100C74351 /* Main.storyboard in Resources */,
 				4ECAAF901FDC13B900C74351 /* Scripts in Resources */,
 				4ECAAF971FDD456600C74351 /* JejuRentalInfo.json in Resources */,
+				FF26C9C91FE43E3C001735E1 /* CrawlerRentalInfo.json in Resources */,
+				FF26C9C71FE43E28001735E1 /* CertificateCenterInfo.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +284,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/Users/seonghohong/Workspace/BicycleMap/BicycleMap/Scripts/strip-frameworks.sh";
+			shellScript = "/Users/danb/BicycleMap-Jeju/BicycleMap/Scripts/strip-frameworks.sh";
 		};
 		8B1AFCC256DD9E73C8CE26DD /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -340,6 +347,7 @@
 				4ECAAFB11FE4079C00C74351 /* Center.swift in Sources */,
 				4ECAAF931FDC148A00C74351 /* NMapViewResources.swift in Sources */,
 				4ECAAFB31FE408C100C74351 /* CenterController.swift in Sources */,
+				FF26C9CB1FE43F0F001735E1 /* DetailViewController.swift in Sources */,
 				4ECAAF951FDC151700C74351 /* ViewController+NMapDelegate.swift in Sources */,
 				4ECAAF6A1FDBC11100C74351 /* ViewController.swift in Sources */,
 				4ECAAF681FDBC11100C74351 /* AppDelegate.swift in Sources */,
@@ -491,6 +499,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"\"$(SRCROOT)/../../Desktop/maps.ios-master 2 오후 5.37.13/Frameworks\"",
+					"\"$(SRCROOT)/../maps.ios/Frameworks\"",
 				);
 				INFOPLIST_FILE = BicycleMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -504,7 +513,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.grohong.BicycleMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/seonghohong/Workspace/BicycleMap/BicycleMap/BicycleMap-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/danb/BicycleMap-Jeju/BicycleMap/BicycleMap-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -521,6 +530,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"\"$(SRCROOT)/../../Desktop/maps.ios-master 2 오후 5.37.13/Frameworks\"",
+					"\"$(SRCROOT)/../maps.ios/Frameworks\"",
 				);
 				INFOPLIST_FILE = BicycleMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -530,7 +540,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.grohong.BicycleMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/seonghohong/Workspace/BicycleMap/BicycleMap/BicycleMap-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/danb/BicycleMap-Jeju/BicycleMap/BicycleMap-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
