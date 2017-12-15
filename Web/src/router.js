@@ -10,9 +10,8 @@ const router = new VueRouter({
 	mode: 'hash',
 	routes: [
 		// { path: '/', name: 'simple', component: SimpleMap },
-		{ path: '/nearby', name: 'nearby', component: NearbyPlaces },
-		{ path: '/', name: 'geocoder', component: LocationGeocoder },
-		{ path: '/place-details', name: 'place-details', component: PlaceDetails },
+    { path: '/', name: '자전거 대여소', component: LocationGeocoder },
+    { path: '/nearby', name: '주변 장소들', component: NearbyPlaces },
 	],
 })
 

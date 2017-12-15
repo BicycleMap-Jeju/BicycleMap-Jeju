@@ -9,7 +9,7 @@
         <md-icon>menu</md-icon>
       </md-button>
 
-      <h2 class="md-title" style="flex: 1;">Geocoder</h2>
+      <h2 class="md-title" style="flex: 1;">자전거 대여소</h2>
 
       <md-button
           class="md-icon-button"
@@ -36,7 +36,9 @@
         <googlemaps-marker
             v-if="searchLocation"
             title="Searched location"
-            :position="searchLocation"/>
+            :position="searchLocation"
+            @click="$modal.show('hello-world', { foo: 'bar' })"
+        />
 
         <googlemaps-marker
             v-for="m in freeMarkers"
@@ -45,46 +47,27 @@
             @click="showModal = true"
         />
 
-        <foo-modal
-            v-if="showModal"
-            @close="showModal = false"
-            name="dialog"
-            height="auto"
-            :classes="['v--modal', 'vue-dialog', this.params.class]"
-            :width="width"
-            :pivot-y="0.3"
-            :adaptive="true"
-            :clickToClose="clickToClose"
-            :transition="transition"
-            @before-open="beforeOpened"
-            @before-close="beforeClosed"
-            @opened="$emit('opened', $event)"
-            @closed="$emit('closed', $event)">
-          <div class="dialog-content">
-            <div
-                class="dialog-c-title"
-                v-if="params.title"
-                v-html="params.title || ''"></div>
-            <div
-                class="dialog-c-text"
-                v-html="params.text || ''"></div>
-          </div>
-          <div
-              class="vue-dialog-buttons"
-              v-if="buttons">
-            <button
-                v-for="(button, i) in buttons"
-                :class="button.class || 'vue-dialog-button'"
-                :style="buttonStyle"
-                :key="i"
-                v-html="button.title"
-                @click.stop="click(i, $event)">
-              {{button.title}}
-            </button>
-          </div>
-          <div v-else class="vue-dialog-buttons-none"></div>
-        </foo-modal>
+        <googlemaps-marker
+            v-for="m in paidMarkers"
+            :position="{ lat: m.lat, lng: m.lng}"
+            :icon="'https://i.imgur.com/DChDv4A.png'"
+            @click="showModal = true"
+        />
+`
+        <googlemaps-marker
+            v-for="m in centerMarkers"
+            :position="{ lat: m.lat, lng: m.lng}"
+            :icon="'https://i.imgur.com/AnvH3JY.png'"
+            @click="showModal = true"
+        />
 
+        <modal name="example"
+               :width="300"
+               :height="300"
+               @before-open="beforeOpen"
+               @before-close="beforeClose">
+          <b>{{time}}</b>
+        </modal>
 
 
       </googlemaps-map>
@@ -140,21 +123,7 @@
   import VModal from 'vue-js-modal'
 
   export default {
-    name: 'Dialog',
-    props: {
-      width: {
-        type: [Number, String],
-        default: 400
-      },
-      clickToClose: {
-        type: Boolean,
-        default: true
-      },
-      transition: {
-        type: String,
-        default: 'fade'
-      }
-    },
+    name: 'ExampleModal',
     data() {
       return {
         center: {
@@ -164,8 +133,8 @@
         showModal: false,
         searchLocation: null,
         userPosition: null,
-        params: {},
-        defaultButtons: [{ title: 'CLOSE' }],
+        time: 0,
+        duration: 5000,
         freeMarkers: [
           {
             "name": "서귀포시청2청사 앞",
@@ -437,6 +406,689 @@
             "managerNumber": "064-728-3553",
             "manager": "제주특별자치도 제주시청"
           }
+        ],
+        paidMarkers: [
+          {
+            "name": "용두암하이킹",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 제주시 삼도2동 1115",
+            "lat": 33.5156722,
+            "lng": 126.5215176,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "2000원",
+            "numberOfBicycle": 8,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "064-757-7777",
+            "manager": "",
+            "thumbUrl": "http://ldb.phinf.naver.net/20150901_253/1441035132808jmo8r_JPEG/12892839_0.jpg"
+          },
+          {
+            "name": "수월봉전기자전거",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 제주시 한경면 고산리 3674-9",
+            "lat": 33.2988265,
+            "lng": 126.1680307,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "3000원",
+            "numberOfBicycle": 19,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "010-7591-7388",
+            "manager": "",
+            "thumbUrl": "http://ldb.phinf.naver.net/20170824_253/1503550440247hR96K_JPEG/q1ZyVQAiNbyuclp5vTHOaSdc.JPG.jpg"
+          },
+          {
+            "name": "제주도자전거대여보물섬하이킹",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 제주시 용담2동 2706-1",
+            "lat": 33.5059902,
+            "lng": 126.5100313,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "2000원",
+            "numberOfBicycle": 9,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "010-4582-8240",
+            "manager": "",
+            "thumbUrl": "http://ldb.phinf.naver.net/20160406_77/14599239321764RvSj_PNG/176353566569296_0.png"
+          },
+          {
+            "name": "타발로하이킹",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 제주시 이도2동 387-5",
+            "lat": 33.4982629,
+            "lng": 126.5387661,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "4000원",
+            "numberOfBicycle": 18,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "010-7304-4996",
+            "manager": "",
+            "thumbUrl": "http://ldb.phinf.naver.net/20151113_160/1447396794530zmVpG_JPEG/167154463577713_6.jpg"
+          },
+          {
+            "name": "바이크트립",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 제주시 용담2동 1543-3",
+            "lat": 33.5046308,
+            "lng": 126.4987662,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "7000원",
+            "numberOfBicycle": 11,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "064-744-5990",
+            "manager": "",
+            "thumbUrl": "http://ldb.phinf.naver.net/20160112_45/1452555032442kWbsS_JPEG/176062486050878_0.jpeg"
+          },
+          {
+            "name": "제주하이킹",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 제주시 용담3동 1029-3",
+            "lat": 33.5168360,
+            "lng": 126.5023520,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "3000원",
+            "numberOfBicycle": 6,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "064-711-2200",
+            "manager": "",
+            "thumbUrl": "http://ldb.phinf.naver.net/20150831_286/1440994256762GxWxF_JPEG/126680414849369_0.jpg"
+          },
+          {
+            "name": "우도하이킹레저",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 제주시 우도면 연평리 2395-3",
+            "lat": 33.5092667,
+            "lng": 126.9433500,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "3000원",
+            "numberOfBicycle": 18,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "064-782-5931",
+            "manager": "",
+            "thumbUrl": null
+          },
+          {
+            "name": "자전거빌리지",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 제주시 일도2동 141",
+            "lat": 33.5131885,
+            "lng": 126.5421219,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "6000원",
+            "numberOfBicycle": 10,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "010-3100-1414",
+            "manager": "",
+            "thumbUrl": null
+          },
+          {
+            "name": "제주자전거대여점",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 제주시 건입동 1043-2 1층",
+            "lat": 33.5157137,
+            "lng": 126.5368666,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "7000원",
+            "numberOfBicycle": 14,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "010-4932-5949",
+            "manager": "",
+            "thumbUrl": null
+          },
+          {
+            "name": "환타지제주",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 서귀포시 색달동 2864-36",
+            "lat": 33.2501938,
+            "lng": 126.4128508,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "5000원",
+            "numberOfBicycle": 16,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "010-6693-7189",
+            "manager": "",
+            "thumbUrl": "http://ldb.phinf.naver.net/20150901_96/14410597489094uLMz_GIF/SUBMIT_1382491275326_33461072.gif"
+          },
+          {
+            "name": "로얄쇼핑자전거대여소",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 제주시 연동",
+            "lat": 33.4891944,
+            "lng": 126.4909367,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "4000원",
+            "numberOfBicycle": 11,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "",
+            "manager": "",
+            "thumbUrl": null
+          },
+          {
+            "name": "아이러브바이크",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 제주시 삼도2동 14-4",
+            "lat": 33.5158840,
+            "lng": 126.5226770,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "6000원",
+            "numberOfBicycle": 13,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "064-723-7775",
+            "manager": "",
+            "thumbUrl": "http://ldb.phinf.naver.net/20150901_217/1441041448164Db3Gm_JPEG/126662557272657_0.jpg"
+          },
+          {
+            "name": "아트센터(한라도서관)자전거대여소",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 제주시 오라2동",
+            "lat": 33.4756553,
+            "lng": 126.5145154,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "6000원",
+            "numberOfBicycle": 16,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "",
+            "manager": "",
+            "thumbUrl": null
+          },
+          {
+            "name": "탐라도서관자전거대여소",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 제주시 노형동",
+            "lat": 33.4778949,
+            "lng": 126.4775358,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "5000원",
+            "numberOfBicycle": 12,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "",
+            "manager": "",
+            "thumbUrl": null
+          },
+          {
+            "name": "(구)제주일보사자전거대여소",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 제주시 연동",
+            "lat": 33.4908578,
+            "lng": 126.4859025,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "4000원",
+            "numberOfBicycle": 19,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "",
+            "manager": "",
+            "thumbUrl": null
+          },
+          {
+            "name": "제이바이시클",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 제주시 용담1동 220-14 1층",
+            "lat": 33.5092130,
+            "lng": 126.5160238,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "6000원",
+            "numberOfBicycle": 14,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "010-4626-5815",
+            "manager": "",
+            "thumbUrl": "http://ldb.phinf.naver.net/20170110_198/1484035134609abIro_PNG/186055578533709_0.png"
+          },
+          {
+            "name": "중문하이킹",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 서귀포시 색달동 2502-1",
+            "lat": 33.2552878,
+            "lng": 126.4146759,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "2000원",
+            "numberOfBicycle": 7,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "064-739-3500",
+            "manager": "",
+            "thumbUrl": null
+          },
+          {
+            "name": "국기로(대림A)자전거대여소",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 제주시 연동",
+            "lat": 33.4785140,
+            "lng": 126.4906762,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "2000원",
+            "numberOfBicycle": 7,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "",
+            "manager": "",
+            "thumbUrl": null
+          },
+          {
+            "name": "설문대여성문화센터자전거대여소",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 제주시 연동",
+            "lat": 33.4840719,
+            "lng": 126.5000440,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "7000원",
+            "numberOfBicycle": 10,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "",
+            "manager": "",
+            "thumbUrl": null
+          },
+          {
+            "name": "성산라이딩",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 서귀포시 성산읍 성산리 230-4",
+            "lat": 33.4646036,
+            "lng": 126.9333719,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "5000원",
+            "numberOfBicycle": 6,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "010-5236-9000",
+            "manager": "",
+            "thumbUrl": "http://ldb.phinf.naver.net//20170704_127/1499132933756dQ7T2_JPEG/%BC%BA%BB%EA_%B6%F3%C0%CC%B5%F9.jpg"
+          },
+          {
+            "name": "푸른바이크쉐어링",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 제주시 삼도2동 967",
+            "lat": 33.5123941,
+            "lng": 126.5213416,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "5000원",
+            "numberOfBicycle": 17,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "064-721-0333",
+            "manager": "",
+            "thumbUrl": null
+          },
+          {
+            "name": "에코트립",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 제주시 삼도2동 1158-44",
+            "lat": 33.5148228,
+            "lng": 126.5178852,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "5000원",
+            "numberOfBicycle": 12,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "1800-5816",
+            "manager": "",
+            "thumbUrl": null
+          },
+          {
+            "name": "에코트립",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 서귀포시 강정동 2637-1",
+            "lat": 33.2344160,
+            "lng": 126.4882685,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "3000원",
+            "numberOfBicycle": 7,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "070-7124-0938",
+            "manager": "",
+            "thumbUrl": "http://ldb.phinf.naver.net/20170216_12/1487235233664IWKed_JPEG/186164547334306_0.jpeg"
+          },
+          {
+            "name": "아일랜드하이킹",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 제주시 용담1동 308-4",
+            "lat": 33.5108896,
+            "lng": 126.5129566,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "7000원",
+            "numberOfBicycle": 12,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "064-900-6111",
+            "manager": "",
+            "thumbUrl": null
+          },
+          {
+            "name": "헬로우제주 전동킥보드",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 서귀포시 안덕면 덕수리 2772-1",
+            "lat": 33.2662181,
+            "lng": 126.3006345,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "2000원",
+            "numberOfBicycle": 8,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "010-7329-9069",
+            "manager": "",
+            "thumbUrl": "http://ldb.phinf.naver.net/20170714_192/1499999670053GErkq_JPEG/186662547454458_0.jpeg"
+          },
+          {
+            "name": "하우마을레저",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 제주시 우도면 연평리 2384-5",
+            "lat": 33.5097363,
+            "lng": 126.9434747,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "6000원",
+            "numberOfBicycle": 9,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "064-783-0354",
+            "manager": "",
+            "thumbUrl": null
+          },
+          {
+            "name": "자전거빌리지",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 제주시 일도2동 141",
+            "lat": 33.5131970,
+            "lng": 126.5420954,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "7000원",
+            "numberOfBicycle": 18,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "070-8790-7100",
+            "manager": "",
+            "thumbUrl": null
+          },
+          {
+            "name": "제주라이더",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 제주시 일도1동 1100-10",
+            "lat": 33.5127614,
+            "lng": 126.5282562,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "6000원",
+            "numberOfBicycle": 13,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "010-8459-2848",
+            "manager": "",
+            "thumbUrl": "http://ldb.phinf.naver.net/20150901_199/1441101112111mfcCh_JPEG/156265605969357_0.jpeg"
+          },
+          {
+            "name": "우도팔경레져",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 제주시 우도면 연평리 1737-3",
+            "lat": 33.4926222,
+            "lng": 126.9519664,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "4000원",
+            "numberOfBicycle": 15,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "010-2604-3096",
+            "manager": "",
+            "thumbUrl": "http://ldb.phinf.naver.net/20160517_35/1463458899379uXdc2_JPEG/176457536265051_2.jpeg"
+          },
+          {
+            "name": "한라싸이클",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 제주시 오라2동 3160",
+            "lat": 33.4814673,
+            "lng": 126.5012949,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "2000원",
+            "numberOfBicycle": 19,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "064-749-8510",
+            "manager": "",
+            "thumbUrl": "http://ldb.phinf.naver.net/20150831_43/1441018036161M8WPf_JPEG/166579548678955_0.jpeg"
+          },
+          {
+            "name": "바이크스토리",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 제주시 삼양2동 2129-7",
+            "lat": 33.5213974,
+            "lng": 126.5818624,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "5000원",
+            "numberOfBicycle": 20,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "064-723-7757",
+            "manager": "",
+            "thumbUrl": "http://ldb.phinf.naver.net/20150901_15/1441060951460h0v20_JPEG/166656588345924_0.jpeg"
+          },
+          {
+            "name": "그린스퀘어",
+            "rentalType": "유료대여소",
+            "address": "제주특별자치도 제주시 건입동 1451-5",
+            "lat": 33.5275000,
+            "lng": 126.5450000,
+            "startTime": "9:00",
+            "endTime": "18:00",
+            "closedDays": "없음",
+            "payType": "유료",
+            "charge": "5000원",
+            "numberOfBicycle": 15,
+            "airInjection": false,
+            "airInjectionType": "",
+            "repairstand": false,
+            "managerNumber": "064-757-5679",
+            "manager": "",
+            "thumbUrl": "http://ldb.phinf.naver.net/20170306_108/1488764451166dA2Ve_JPEG/186175584851040_0.jpeg"
+          }
+        ],
+        centerMarkers: [
+          {
+            "name": "송악산인증센터",
+            "tel": "",
+            "address": "제주특별자치도 서귀포시 대정읍 상모리 157-2",
+            "lng": 126.2895389,
+            "lat": 33.2068775,
+          },
+          {
+            "name": "용두암인증센터",
+            "tel": "",
+            "address": "제주특별자치도 제주시 용담2동",
+            "lng": 126.5112267,
+            "lat": 33.5150994,
+          },
+          {
+            "name": "함덕해수욕장인증센터",
+            "tel": "",
+            "address": "제주특별자치도 제주시 조천읍 함덕리",
+            "lng": 126.6723826,
+            "lat": 33.5441846,
+          },
+          {
+            "name": "성산일출봉인증센터",
+            "tel": "",
+            "address": "제주특별자치도 서귀포시 성산읍 오조리",
+            "lng": 126.9242820,
+            "lat": 33.4686629,
+          },
+          {
+            "name": "쇠소깍인증센터",
+            "tel": "",
+            "address": "제주특별자치도 서귀포시 하효동",
+            "lng": 126.6232339,
+            "lat": 33.2523116,
+          },
+          {
+            "name": "김녕해수욕장인증센터",
+            "tel": "",
+            "address": "제주특별자치도 제주시 구좌읍 김녕리",
+            "lng": 126.7599194,
+            "lat": 33.5568675,
+          },
+          {
+            "name": "해거름마을공원인증센터",
+            "tel": "",
+            "address": "제주특별자치도 제주시 한경면 판포리",
+            "lng": 126.2064745,
+            "lat": 33.3699757,
+          },
+          {
+            "name": "법환바당인증센터",
+            "tel": "",
+            "address": "제주특별자치도 서귀포시 법환동",
+            "lng": 126.5150614,
+            "lat": 33.2358681,
+          },
+          {
+            "name": "표선해변인증센터",
+            "tel": "",
+            "address": "제주특별자치도 서귀포시 표선면 표선리",
+            "lng": 126.8407390,
+            "lat": 33.3255846,
+          },
+          {
+            "name": "다락쉼터인증센터",
+            "tel": "",
+            "address": "제주특별자치도 제주시 애월읍 고내리",
+            "lng": 126.3408170,
+            "lat": 33.4701520,
+
+          }
         ]
       }
     },
@@ -456,18 +1108,6 @@
         }
       },
 
-      buttons () {
-        return this.params.buttons || this.defaultButtons
-      },
-      /**
-       * Returns FLEX style with correct width for arbitrary number of
-       * buttons.
-       */
-      buttonStyle () {
-        return {
-          flex: `1 1 ${100 / this.buttons.length}%`
-        }
-      }
     },
 
     methods: {
@@ -490,37 +1130,23 @@
         this.userPosition = position
       },
 
-      beforeOpened (event) {
-        window.addEventListener('keyup', this.onKeyUp)
-        this.params = event.params || {}
-        this.$emit('before-opened', event)
+      beforeOpen (event) {
+        console.log(event)
+        // Set the opening time of the modal
+        this.time = Date.now()
       },
-      beforeClosed (event) {
-        window.removeEventListener('keyup', this.onKeyUp)
-        this.params = {}
-        this.$emit('before-closed', event)
-      },
-      click (i, event, source = 'click') {
-        const button = this.buttons[i]
-        if (button && typeof button.handler === 'function') {
-          button.handler(i, event, { source })
-        } else {
-          this.$modal.hide('dialog')
-        }
-      },
-      onKeyUp (event) {
-        if (event.which === 13 && this.buttons.length > 0) {
-          const buttonIndex = this.buttons.length === 1
-            ? 0
-            : this.buttons.findIndex(button => button.default)
-          if (buttonIndex !== -1) {
-            this.click(buttonIndex, event, 'keypress')
-          }
+      beforeClose (event) {
+        console.log(event)
+        // If modal was open less then 5000 ms - prevent closing it
+        if (this.time + this.duration < Date.now()) {
+          event.stop()
         }
       }
+
     },
   }
 </script>
+
 
 <style lang="stylus" scoped>
   .demo {
@@ -550,56 +1176,18 @@
     }
   }
 
-  .vue-dialog div {
-    box-sizing: border-box;
+  .size-modal-content {
+    padding: 10px;
+    font-style: 13px;
   }
-  .vue-dialog .dialog-flex {
-    width: 100%;
-    height: 100%;
+
+  .v--modal-overlay[data-modal="size-modal"] {
+    background: rgba(0, 0, 0, 0.5);
   }
-  .vue-dialog .dialog-content {
-    flex: 1 0 auto;
-    width: 100%;
-    padding: 15px;
-    font-size: 14px;
-  }
-  .vue-dialog .dialog-c-title {
-    font-weight: 600;
-    padding-bottom: 15px;
-  }
-  .vue-dialog .dialog-c-text {
-  }
-  .vue-dialog .vue-dialog-buttons {
-    display: flex;
-    flex: 0 1 auto;
-    width: 100%;
-    border-top: 1px solid #eee;
-  }
-  .vue-dialog .vue-dialog-buttons-none {
-    width: 100%;
-    padding-bottom: 15px;
-  }
-  .vue-dialog-button {
-    font-size: 12px !important;
-    background: transparent;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    cursor: pointer;
-    box-sizing: border-box;
-    line-height: 40px;
-    height: 40px;
-    color: inherit;
-    font: inherit;
-    outline: none;
-  }
-  .vue-dialog-button:hover {
-    background: rgba(0, 0, 0, 0.01);
-  }
-  .vue-dialog-button:active {
-    background: rgba(0, 0, 0, 0.025);
-  }
-  .vue-dialog-button:not(:first-of-type) {
-    border-left: 1px solid #eee;
+
+  .demo-modal-class {
+    border-radius: 5px;
+    background: #F7F7F7;
+    box-shadow: 5px 5px 30px 0px rgba(46, 61, 73, 0.6);
   }
 </style>

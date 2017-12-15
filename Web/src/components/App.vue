@@ -16,16 +16,10 @@
 
 			<md-list>
 				<md-list-item>
-					<router-link :to="{ name: 'simple' }" exact>Bicycle map</router-link>
+					<router-link :to="{ name: '자전거 대여소' }">자전거 대여소</router-link>
 				</md-list-item>
 				<md-list-item>
-					<router-link :to="{ name: 'nearby' }">Nearby places</router-link>
-				</md-list-item>
-				<md-list-item>
-					<router-link :to="{ name: 'geocoder' }">Geocoder</router-link>
-				</md-list-item>
-				<md-list-item>
-					<router-link :to="{ name: 'place-details' }">Place details</router-link>
+					<router-link :to="{ name: '주변 장소들' }">주변 장소들</router-link>
 				</md-list-item>
 			</md-list>
 		</md-sidenav>

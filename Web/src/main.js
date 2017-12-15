@@ -13,8 +13,7 @@ Vue.component('LoadingOverlay', LoadingOverlay)
 Vue.component('modal', {
   template: '#modal-template'
 })
-Vue.use(VModal, { componentName: "foo-modal" })
-
+Vue.use(VModal)
 
 new Vue({
 	el: '#app',
