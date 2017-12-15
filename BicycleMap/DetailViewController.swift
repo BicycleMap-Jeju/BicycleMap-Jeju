@@ -21,9 +21,12 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var callButton: UIButton!
     
+    var rentalInfo: Rental?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         callButton.layer.cornerRadius = callButton.bounds.height/2
+        textSet()
 
         // Do any additional setup after loading the view.
     }
@@ -34,10 +37,25 @@ class DetailViewController: UIViewController {
     }
     
     func textSet() {
-        
+        storeName.text = rentalInfo?._name
+        storeType.text = rentalInfo?.payType
+        storeAddress.text = rentalInfo?._address
+        workHour.text = (rentalInfo?.start ?? "") + "-" + (rentalInfo?.end ?? "")
+//        availableBike.text = rentalInfo.
+//        phoneNumber.text = rentalInfo.
+//        storeImage.image = rentalInfo.
+//        function.text = rentalInfo.
+
+    }
+    @IBAction func touchedCloseButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
-
+    @IBAction func touchedCallButton(_ sender: Any) {
+//        let url = NSURL(string: "tel://\(cafeData["tel"] as! String)")
+//        UIApplication.shared.openURL(url as! URL)
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PQp-kH-HDG">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,7 +19,7 @@
         <!--Detail View Controller-->
         <scene sceneID="0RW-V5-K7e">
             <objects>
-                <viewController id="PQp-kH-HDG" customClass="DetailViewController" customModule="BicycleMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailView" id="PQp-kH-HDG" customClass="DetailViewController" customModule="BicycleMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i2A-5k-mS8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -115,6 +115,17 @@
                                 <state key="normal" title="전화하기">
                                     <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="touchedCallButton:" destination="PQp-kH-HDG" eventType="touchUpInside" id="oTk-u0-js6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fgx-xa-bF7">
+                                <rect key="frame" x="18" y="36" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="cancel_Btn"/>
+                                <connections>
+                                    <action selector="touchedCloseButton:" destination="PQp-kH-HDG" eventType="touchUpInside" id="R3j-aR-md7"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -137,4 +148,7 @@
             <point key="canvasLocation" x="613.60000000000002" y="196.55172413793105"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cancel_Btn" width="22" height="22"/>
+    </resources>
 </document>

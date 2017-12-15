@@ -25,6 +25,27 @@ extension ViewController: UICollectionViewDataSource {
 }
 
 extension ViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let detailStoryboard = UIStoryboard(name: "DetailStoryboard", bundle: nil)
+//        let detailViewSB = detailStoryboard.instantiateViewController(withIdentifier: "toDetail") as! DetailViewController
+//        navigationController?.pushViewController(detailViewSB, animated: true)
+        performSegue(withIdentifier: "toDetail", sender: centerList?[indexPath.item])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toDetail" {
+            if let detailSegue = segue.destination as? DetailViewController {
+                if let rental = sender as? Rental {
+
+                    detailSegue.rentalInfo = rental
+                }
+            }
+            
+        }
+    }
+    
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         prevOffset = scrollView.contentOffset
         
