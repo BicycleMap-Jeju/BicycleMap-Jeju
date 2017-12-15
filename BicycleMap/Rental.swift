@@ -26,6 +26,7 @@ struct Rental: Center {
     private var _manager: String
     private var _thumbUrl: String?
     
+    
     enum PayType {
         case free
         case charge
