@@ -39,6 +39,7 @@ extension ViewController: NMapViewDelegate {
                     poiItem?.setPOIflagMode(.fixed)
                     poiItem?.hasRightCalloutAccessory = false
                 }
+                overlayItems = poiDataOverlay
                 
                 poiDataOverlay.endPOIdata()
                 poiDataOverlay.selectPOIitem(at: 0, moveToCenter: true)
@@ -50,7 +51,7 @@ extension ViewController: NMapViewDelegate {
 
 extension ViewController: NMapPOIdataOverlayDelegate {
     func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, imageForOverlayItem poiItem: NMapPOIitem!, selected: Bool) -> UIImage! {
-         return NMapViewResources.imageWithType(poiItem.poiFlagType, selected: selected)
+        return NMapViewResources.imageWithType(poiItem.poiFlagType, selected: selected)
     }
     
     func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, anchorPointWithType poiFlagType: NMapPOIflagType) -> CGPoint {
@@ -63,6 +64,37 @@ extension ViewController: NMapPOIdataOverlayDelegate {
     
     func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, calloutOffsetWithType poiFlagType: NMapPOIflagType) -> CGPoint {
         return CGPoint(x: 0, y: 0)
+    }
+    
+    func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, didChangeSelectedPOIitemAt index: Int32, with object: Any!) -> Bool {
+        if let prevIdx = prevIndex {
+            if let poiItems = poiDataOverlay.poiData() as? [NMapPOIitem] {
+                poiItems[Int(prevIdx)].poiFlagType = UserPOIflagTypeDefault
+            }
+            poiDataOverlay.updateImage(at: prevIdx)
+        } else {
+            prevIndex = index
+        }
+        poiDataOverlay.updateImage(at: index)
+        prevIndex = index
+        
+        return true
+    }
+    
+    func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, viewForCalloutOverlayItem poiItem: NMapPOIitem!, calloutPosition: UnsafeMutablePointer<CGPoint>!) -> UIView! {
+        // CollectionView 선택하기
+        let indexPath = IndexPath(item: Int(poiItem.iconIndex), section: 0)
+        rentalCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredHorizontally)
+        rentalCollectionView.isHidden = false
+        
+        // 마커가 중앙에 오도록하기
+        if mapView?.zoomLevel() != 9 {
+            mapView?.setMapCenter(poiItem.location, atLevel: 9)
+        } else {
+            mapView?.animate(to: poiItem)
+        }
+        
+        return nil
     }
 }
 
