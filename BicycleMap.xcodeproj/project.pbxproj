@@ -23,6 +23,9 @@
 		4ECAAF971FDD456600C74351 /* JejuRentalInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 4ECAAF961FDD456600C74351 /* JejuRentalInfo.json */; };
 		4ECAAF9C1FDD517700C74351 /* Rental.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAAF9B1FDD517700C74351 /* Rental.swift */; };
 		4ECAAF9F1FDD57A900C74351 /* RentalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAAF9E1FDD57A900C74351 /* RentalController.swift */; };
+		4ECAAFA41FDE55EB00C74351 /* RentalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAAFA21FDE55EB00C74351 /* RentalCollectionViewCell.swift */; };
+		4ECAAFA51FDE55EB00C74351 /* RentalCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ECAAFA31FDE55EB00C74351 /* RentalCollectionViewCell.xib */; };
+		4ECAAFA71FDE57EC00C74351 /* ViewController+CollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAAFA61FDE57EC00C74351 /* ViewController+CollectionViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -58,6 +61,9 @@
 		4ECAAF961FDD456600C74351 /* JejuRentalInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JejuRentalInfo.json; sourceTree = "<group>"; };
 		4ECAAF9B1FDD517700C74351 /* Rental.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rental.swift; sourceTree = "<group>"; };
 		4ECAAF9E1FDD57A900C74351 /* RentalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentalController.swift; sourceTree = "<group>"; };
+		4ECAAFA21FDE55EB00C74351 /* RentalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentalCollectionViewCell.swift; sourceTree = "<group>"; };
+		4ECAAFA31FDE55EB00C74351 /* RentalCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RentalCollectionViewCell.xib; sourceTree = "<group>"; };
+		4ECAAFA61FDE57EC00C74351 /* ViewController+CollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+CollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		94022CEA42C9D4D0FA600A10 /* Pods-BicycleMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BicycleMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-BicycleMap/Pods-BicycleMap.release.xcconfig"; sourceTree = "<group>"; };
 		F8B6C4CE73275E8C2CBE7309 /* Pods_BicycleMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BicycleMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -104,7 +110,10 @@
 				4ECAAF9D1FDD578B00C74351 /* DataController */,
 				4ECAAF691FDBC11100C74351 /* ViewController.swift */,
 				4ECAAF941FDC151700C74351 /* ViewController+NMapDelegate.swift */,
+				4ECAAFA61FDE57EC00C74351 /* ViewController+CollectionViewDelegate.swift */,
 				4ECAAF6B1FDBC11100C74351 /* Main.storyboard */,
+				4ECAAFA21FDE55EB00C74351 /* RentalCollectionViewCell.swift */,
+				4ECAAFA31FDE55EB00C74351 /* RentalCollectionViewCell.xib */,
 			);
 			path = BicycleMap;
 			sourceTree = "<group>";
@@ -232,6 +241,7 @@
 			files = (
 				4ECAAF751FDBC11100C74351 /* LaunchScreen.storyboard in Resources */,
 				4ECAAF721FDBC11100C74351 /* Assets.xcassets in Resources */,
+				4ECAAFA51FDE55EB00C74351 /* RentalCollectionViewCell.xib in Resources */,
 				4ECAAF6D1FDBC11100C74351 /* Main.storyboard in Resources */,
 				4ECAAF901FDC13B900C74351 /* Scripts in Resources */,
 				4ECAAF971FDD456600C74351 /* JejuRentalInfo.json in Resources */,
@@ -319,6 +329,8 @@
 				4ECAAF6A1FDBC11100C74351 /* ViewController.swift in Sources */,
 				4ECAAF681FDBC11100C74351 /* AppDelegate.swift in Sources */,
 				4ECAAF701FDBC11100C74351 /* BicycleMap.xcdatamodeld in Sources */,
+				4ECAAFA71FDE57EC00C74351 /* ViewController+CollectionViewDelegate.swift in Sources */,
+				4ECAAFA41FDE55EB00C74351 /* RentalCollectionViewCell.swift in Sources */,
 				4ECAAF9C1FDD517700C74351 /* Rental.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

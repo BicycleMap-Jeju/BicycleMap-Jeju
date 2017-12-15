@@ -121,7 +121,7 @@
       "numberOfBicycle": 90,
       "airInjection": false,
       "airInjectionType": "수동식",
-      "repair stand": false,
+      "repairstand": false,
       "managerNumber": "064-728-3553",
       "manager": "제주특별자치도 제주시청"
     },
@@ -139,7 +139,7 @@
       "numberOfBicycle": 90,
       "airInjection": true,
       "airInjectionType": "수동식",
-      "repair stand": false,
+      "repairstand": false,
       "managerNumber": "064-728-3553",
       "manager": "제주특별자치도 제주시청"
     },
@@ -157,7 +157,7 @@
       "numberOfBicycle": 90,
       "airInjection": true,
       "airInjectionType": "수동식",
-      "repair stand": false,
+      "repairstand": false,
       "managerNumber": "064-728-3553",
       "manager": "제주특별자치도 제주시청"
     },
@@ -175,7 +175,7 @@
       "numberOfBicycle": 90,
       "airInjection": true,
       "airInjectionType": "수동식",
-      "repair stand": false,
+      "repairstand": false,
       "managerNumber": "064-728-3553",
       "manager": "제주특별자치도 제주시청"
     },
@@ -193,7 +193,7 @@
       "numberOfBicycle": 90,
       "airInjection": true,
       "airInjectionType": "수동식",
-      "repair stand": false,
+      "repairstand": false,
       "managerNumber": "064-728-3553",
       "manager": "제주특별자치도 제주시청"
     },
@@ -211,7 +211,7 @@
       "numberOfBicycle": 90,
       "airInjection": true,
       "airInjectionType": "수동식",
-      "repair stand": false,
+      "repairstand": false,
       "managerNumber": "064-728-3553",
       "manager": "제주특별자치도 제주시청"
     },
@@ -229,7 +229,7 @@
       "numberOfBicycle": 90,
       "airInjection": true,
       "airInjectionType": "수동식",
-      "repair stand": false,
+      "repairstand": false,
       "managerNumber": "064-728-3553",
       "manager": "제주특별자치도 제주시청"
     },
@@ -247,7 +247,7 @@
       "numberOfBicycle": 90,
       "airInjection": false,
       "airInjectionType": "수동식",
-      "repair stand": false,
+      "repairstand": false,
       "managerNumber": "064-728-3553",
       "manager": "제주특별자치도 제주시청"
     },
@@ -265,7 +265,7 @@
       "numberOfBicycle": 90,
       "airInjection": false,
       "airInjectionType": "수동식",
-      "repair stand": false,
+      "repairstand": false,
       "managerNumber": "064-728-3553",
       "manager": "제주특별자치도 제주시청"
     }
