@@ -8,7 +8,12 @@
         <md-icon>menu</md-icon>
       </md-button>
 
-      <h2 class="md-title" style="flex: 1;">주변 장소들</h2>
+      <h2 class="md-title" style="flex: 1;">
+        주변 장소들
+        <img src="https://i.imgur.com/856DVp3.png">  무료
+        <img src="https://i.imgur.com/DChDv4A.png">  유료
+        <img src="https://i.imgur.com/AnvH3JY.png">  인증센터
+      </h2>
 
       <md-button
           class="md-icon-button"
