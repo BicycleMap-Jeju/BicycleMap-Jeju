@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     var prevOffset: CGPoint?
     var prevIndex: Int32?
     var myLocation: NGeoPoint?
+    var circleArea: NMapCircleData?
 
     let centerController = CenterController()
     
@@ -130,6 +131,7 @@ class ViewController: UIViewController {
         sortRental()
         rentalCollectionView.reloadData()
         addMarker()
+        addCircleAroundMyPosition()
     }
     
     func sortRental() {
