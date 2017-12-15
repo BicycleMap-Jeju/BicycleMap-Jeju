@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct Rental {
-    private var _name: String
+struct Rental: Center {
+    internal var _name: String
+    internal var _address: String
+    internal var _latitude: Double
+    internal var _longitude: Double
     private var _rentalType: String
-    private var _address: String
-    private var _latitude: Double
-    private var _longitude: Double
     private var _start: String
     private var _end: String
     private var _closedDays: String
@@ -24,6 +24,7 @@ struct Rental {
     private var _repairstand: Bool
     private var _managerNumber: String
     private var _manager: String
+    private var _thumbUrl: String?
     
     enum PayType {
         case free
@@ -53,6 +54,32 @@ struct Rental {
         self._repairstand = repairstand
         self._managerNumber = managerNumber
         self._manager = manager
+    }
+    
+    init(name: String, rentalType: String, address: String, latitude: Double, longitude: Double, start: String, end: String, closedDays: String, payType: String, charge: String?, airInjection: Bool, airInjectionType: String?, repairstand: Bool, managerNumber: String, manager: String, thumbUrl: String) {
+        self._name = name
+        self._rentalType = rentalType
+        self._address = address
+        self._latitude = latitude
+        self._longitude = longitude
+        self._start = start
+        self._end = end
+        self._closedDays = closedDays
+        
+        switch payType {
+        case "무료":
+            self._payType = .free
+        default:
+            self._payType = .charge
+        }
+        
+        self._charge = charge
+        self._airInjection = airInjection
+        self._airInjectionType = airInjectionType
+        self._repairstand = repairstand
+        self._managerNumber = managerNumber
+        self._manager = manager
+        self._thumbUrl = thumbUrl
     }
     
     public var name: String {
