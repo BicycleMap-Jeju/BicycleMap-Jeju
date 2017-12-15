@@ -16,12 +16,13 @@ class ViewController: UIViewController {
     var overlayItems: NMapPOIdataOverlay?
     var changeStateButton: UIButton?
     var currentLocationFlag = false
-    var rentalList: [Rental]?
+    var centerList: [Center]?
+    var certificationcenterList: [Certificationcenter]?
     var prevOffset: CGPoint?
     var prevIndex: Int32?
+    var myLocation: NGeoPoint?
 
-    
-    let rentalController = RentalController()
+    let centerController = CenterController()
     
     enum state {
         case disabled
@@ -33,6 +34,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        NotificationCenter.default.addObserver(self, selector: #selector(setMyLocation),
+                                               name: NSNotification.Name(rawValue: "currentLocation"), object: nil)
+        
         rentalCollectionView.dataSource = self
         rentalCollectionView.delegate = self
         mapView = NMapView(frame: self.view.frame)
@@ -56,7 +60,7 @@ class ViewController: UIViewController {
         rentalCollectionView.register(UINib(nibName: "RentalCollectionViewCell", bundle: nil) , forCellWithReuseIdentifier: "rentalCell")
         setCollectionViewLayou()
         
-        rentalList = rentalController.getRental(info: "JejuRentalInfo")
+        centerList = centerController.getCenterList()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -117,6 +121,33 @@ class ViewController: UIViewController {
         rentalCollectionView.collectionViewLayout = layout
         
         rentalCollectionView.decelerationRate = UIScrollViewDecelerationRateFast
+    }
+    
+    @objc func setMyLocation(_ notification: NSNotification) {
+        if let coordinate = notification.userInfo!["currentLocation"] as? CLLocationCoordinate2D {
+            myLocation = NGeoPoint(longitude: coordinate.longitude, latitude: coordinate.latitude)
+        }
+        sortRental()
+        rentalCollectionView.reloadData()
+        addMarker()
+    }
+    
+    func sortRental() {
+        if let currentLocation = myLocation,
+            let rental = centerList {
+            centerList = rental.sorted(by: sortByDistance)
+        }
+    }
+    
+    func sortByDistance(this: Center, that: Center) -> Bool {
+        let thisNgeo = NGeoPoint(longitude: this._longitude, latitude: this._latitude)
+        let thatNgeo = NGeoPoint(longitude: that._longitude, latitude: that._latitude)
+        
+        return distanceCurrent(location: thisNgeo) < distanceCurrent(location: thatNgeo)
+    }
+    
+    private func distanceCurrent(location: NGeoPoint) -> Double {
+        return NMapView.distance(fromLocation: location, toLocation: myLocation!)
     }
 }
 

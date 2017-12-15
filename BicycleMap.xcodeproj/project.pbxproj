@@ -16,16 +16,20 @@
 		4ECAAF751FDBC11100C74351 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ECAAF731FDBC11100C74351 /* LaunchScreen.storyboard */; };
 		4ECAAF801FDC0B4100C74351 /* ApiGatewayMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECAAF7F1FDC0B4100C74351 /* ApiGatewayMac.framework */; };
 		4ECAAF811FDC0B4100C74351 /* ApiGatewayMac.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECAAF7F1FDC0B4100C74351 /* ApiGatewayMac.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4ECAAF8C1FDC12EB00C74351 /* NMapViewerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECAAF8B1FDC12EB00C74351 /* NMapViewerSDK.framework */; };
 		4ECAAF901FDC13B900C74351 /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = 4ECAAF8F1FDC13B900C74351 /* Scripts */; };
 		4ECAAF931FDC148A00C74351 /* NMapViewResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAAF921FDC148A00C74351 /* NMapViewResources.swift */; };
 		4ECAAF951FDC151700C74351 /* ViewController+NMapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAAF941FDC151700C74351 /* ViewController+NMapDelegate.swift */; };
 		4ECAAF971FDD456600C74351 /* JejuRentalInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 4ECAAF961FDD456600C74351 /* JejuRentalInfo.json */; };
 		4ECAAF9C1FDD517700C74351 /* Rental.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAAF9B1FDD517700C74351 /* Rental.swift */; };
-		4ECAAF9F1FDD57A900C74351 /* RentalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAAF9E1FDD57A900C74351 /* RentalController.swift */; };
 		4ECAAFA41FDE55EB00C74351 /* RentalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAAFA21FDE55EB00C74351 /* RentalCollectionViewCell.swift */; };
 		4ECAAFA51FDE55EB00C74351 /* RentalCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ECAAFA31FDE55EB00C74351 /* RentalCollectionViewCell.xib */; };
 		4ECAAFA71FDE57EC00C74351 /* ViewController+CollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAAFA61FDE57EC00C74351 /* ViewController+CollectionViewDelegate.swift */; };
+		4ECAAFA91FE39A4A00C74351 /* NMapViewerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECAAFA81FE39A4A00C74351 /* NMapViewerSDK.framework */; };
+		4ECAAFAB1FE3B51500C74351 /* CrawlerRentalInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 4ECAAFAA1FE3B51400C74351 /* CrawlerRentalInfo.json */; };
+		4ECAAFAD1FE4018E00C74351 /* CertificateCenterInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 4ECAAFAC1FE4018E00C74351 /* CertificateCenterInfo.json */; };
+		4ECAAFAF1FE401A600C74351 /* Certificationcenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAAFAE1FE401A600C74351 /* Certificationcenter.swift */; };
+		4ECAAFB11FE4079C00C74351 /* Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAAFB01FE4079C00C74351 /* Center.swift */; };
+		4ECAAFB31FE408C100C74351 /* CenterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAAFB21FE408C100C74351 /* CenterController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -54,16 +58,20 @@
 		4ECAAF761FDBC11100C74351 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4ECAAF7F1FDC0B4100C74351 /* ApiGatewayMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ApiGatewayMac.framework; sourceTree = "<group>"; };
 		4ECAAF8A1FDC111100C74351 /* BicycleMap-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BicycleMap-Header.h"; sourceTree = "<group>"; };
-		4ECAAF8B1FDC12EB00C74351 /* NMapViewerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NMapViewerSDK.framework; path = "../../Desktop/maps.ios-master 2/Frameworks/NMapViewerSDK.framework"; sourceTree = "<group>"; };
 		4ECAAF8F1FDC13B900C74351 /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
 		4ECAAF921FDC148A00C74351 /* NMapViewResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMapViewResources.swift; sourceTree = "<group>"; };
 		4ECAAF941FDC151700C74351 /* ViewController+NMapDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+NMapDelegate.swift"; sourceTree = "<group>"; };
 		4ECAAF961FDD456600C74351 /* JejuRentalInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JejuRentalInfo.json; sourceTree = "<group>"; };
 		4ECAAF9B1FDD517700C74351 /* Rental.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rental.swift; sourceTree = "<group>"; };
-		4ECAAF9E1FDD57A900C74351 /* RentalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentalController.swift; sourceTree = "<group>"; };
 		4ECAAFA21FDE55EB00C74351 /* RentalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentalCollectionViewCell.swift; sourceTree = "<group>"; };
 		4ECAAFA31FDE55EB00C74351 /* RentalCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RentalCollectionViewCell.xib; sourceTree = "<group>"; };
 		4ECAAFA61FDE57EC00C74351 /* ViewController+CollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+CollectionViewDelegate.swift"; sourceTree = "<group>"; };
+		4ECAAFA81FE39A4A00C74351 /* NMapViewerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NMapViewerSDK.framework; path = "../../Desktop/maps.ios-master 2 오후 5.37.13/Frameworks/NMapViewerSDK.framework"; sourceTree = "<group>"; };
+		4ECAAFAA1FE3B51400C74351 /* CrawlerRentalInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CrawlerRentalInfo.json; path = ../../../Desktop/CrawlerRentalInfo.json; sourceTree = "<group>"; };
+		4ECAAFAC1FE4018E00C74351 /* CertificateCenterInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CertificateCenterInfo.json; path = ../../../Desktop/CertificateCenterInfo.json; sourceTree = "<group>"; };
+		4ECAAFAE1FE401A600C74351 /* Certificationcenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Certificationcenter.swift; sourceTree = "<group>"; };
+		4ECAAFB01FE4079C00C74351 /* Center.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Center.swift; sourceTree = "<group>"; };
+		4ECAAFB21FE408C100C74351 /* CenterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterController.swift; sourceTree = "<group>"; };
 		94022CEA42C9D4D0FA600A10 /* Pods-BicycleMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BicycleMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-BicycleMap/Pods-BicycleMap.release.xcconfig"; sourceTree = "<group>"; };
 		F8B6C4CE73275E8C2CBE7309 /* Pods_BicycleMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BicycleMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -73,7 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4ECAAF8C1FDC12EB00C74351 /* NMapViewerSDK.framework in Frameworks */,
+				4ECAAFA91FE39A4A00C74351 /* NMapViewerSDK.framework in Frameworks */,
 				4ECAAF801FDC0B4100C74351 /* ApiGatewayMac.framework in Frameworks */,
 				0160740B0E472D8136F8A6F2 /* Pods_BicycleMap.framework in Frameworks */,
 			);
@@ -111,8 +119,8 @@
 				4ECAAF691FDBC11100C74351 /* ViewController.swift */,
 				4ECAAF941FDC151700C74351 /* ViewController+NMapDelegate.swift */,
 				4ECAAFA61FDE57EC00C74351 /* ViewController+CollectionViewDelegate.swift */,
-				4ECAAF6B1FDBC11100C74351 /* Main.storyboard */,
 				4ECAAFA21FDE55EB00C74351 /* RentalCollectionViewCell.swift */,
+				4ECAAF6B1FDBC11100C74351 /* Main.storyboard */,
 				4ECAAFA31FDE55EB00C74351 /* RentalCollectionViewCell.xib */,
 			);
 			path = BicycleMap;
@@ -129,6 +137,8 @@
 		4ECAAF7E1FDBC7BA00C74351 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4ECAAFAC1FE4018E00C74351 /* CertificateCenterInfo.json */,
+				4ECAAFAA1FE3B51400C74351 /* CrawlerRentalInfo.json */,
 				4ECAAF961FDD456600C74351 /* JejuRentalInfo.json */,
 				4ECAAF731FDBC11100C74351 /* LaunchScreen.storyboard */,
 				4ECAAF671FDBC11100C74351 /* AppDelegate.swift */,
@@ -143,7 +153,7 @@
 		4ECAAF831FDC0B6700C74351 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4ECAAF8B1FDC12EB00C74351 /* NMapViewerSDK.framework */,
+				4ECAAFA81FE39A4A00C74351 /* NMapViewerSDK.framework */,
 				4ECAAF7F1FDC0B4100C74351 /* ApiGatewayMac.framework */,
 				F8B6C4CE73275E8C2CBE7309 /* Pods_BicycleMap.framework */,
 			);
@@ -153,7 +163,9 @@
 		4ECAAF981FDD513700C74351 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4ECAAFB01FE4079C00C74351 /* Center.swift */,
 				4ECAAF9B1FDD517700C74351 /* Rental.swift */,
+				4ECAAFAE1FE401A600C74351 /* Certificationcenter.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -161,7 +173,7 @@
 		4ECAAF9D1FDD578B00C74351 /* DataController */ = {
 			isa = PBXGroup;
 			children = (
-				4ECAAF9E1FDD57A900C74351 /* RentalController.swift */,
+				4ECAAFB21FE408C100C74351 /* CenterController.swift */,
 			);
 			name = DataController;
 			sourceTree = "<group>";
@@ -241,6 +253,8 @@
 			files = (
 				4ECAAF751FDBC11100C74351 /* LaunchScreen.storyboard in Resources */,
 				4ECAAF721FDBC11100C74351 /* Assets.xcassets in Resources */,
+				4ECAAFAD1FE4018E00C74351 /* CertificateCenterInfo.json in Resources */,
+				4ECAAFAB1FE3B51500C74351 /* CrawlerRentalInfo.json in Resources */,
 				4ECAAFA51FDE55EB00C74351 /* RentalCollectionViewCell.xib in Resources */,
 				4ECAAF6D1FDBC11100C74351 /* Main.storyboard in Resources */,
 				4ECAAF901FDC13B900C74351 /* Scripts in Resources */,
@@ -323,11 +337,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ECAAFB11FE4079C00C74351 /* Center.swift in Sources */,
 				4ECAAF931FDC148A00C74351 /* NMapViewResources.swift in Sources */,
+				4ECAAFB31FE408C100C74351 /* CenterController.swift in Sources */,
 				4ECAAF951FDC151700C74351 /* ViewController+NMapDelegate.swift in Sources */,
-				4ECAAF9F1FDD57A900C74351 /* RentalController.swift in Sources */,
 				4ECAAF6A1FDBC11100C74351 /* ViewController.swift in Sources */,
 				4ECAAF681FDBC11100C74351 /* AppDelegate.swift in Sources */,
+				4ECAAFAF1FE401A600C74351 /* Certificationcenter.swift in Sources */,
 				4ECAAF701FDBC11100C74351 /* BicycleMap.xcdatamodeld in Sources */,
 				4ECAAFA71FDE57EC00C74351 /* ViewController+CollectionViewDelegate.swift in Sources */,
 				4ECAAFA41FDE55EB00C74351 /* RentalCollectionViewCell.swift in Sources */,
@@ -474,7 +490,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"\"$(SRCROOT)/../../Desktop/maps.ios-master 2/Frameworks\"",
+					"\"$(SRCROOT)/../../Desktop/maps.ios-master 2 오후 5.37.13/Frameworks\"",
 				);
 				INFOPLIST_FILE = BicycleMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -504,7 +520,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"\"$(SRCROOT)/../../Desktop/maps.ios-master 2/Frameworks\"",
+					"\"$(SRCROOT)/../../Desktop/maps.ios-master 2 오후 5.37.13/Frameworks\"",
 				);
 				INFOPLIST_FILE = BicycleMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

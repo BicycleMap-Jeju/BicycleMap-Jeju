@@ -10,13 +10,13 @@ import UIKit
 
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let rentalCount = self.rentalList?.count else { return 0 }
+        guard let rentalCount = self.centerList?.count else { return 0 }
         return rentalCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "rentalCell", for: indexPath) as? RentalCollectionViewCell {
-            cell.setInfo(rental: rentalList![indexPath.row])
+            cell.setInfo(center: centerList![indexPath.row])
             return cell
         }
         

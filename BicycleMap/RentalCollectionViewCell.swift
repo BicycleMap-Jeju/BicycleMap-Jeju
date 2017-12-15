@@ -17,7 +17,7 @@ class RentalCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func setInfo(rental: Rental) {
-        rentalNameLabel.text = rental.name
+    func setInfo(center: Center) {
+        rentalNameLabel.text = center._name
     }
 }

@@ -12,7 +12,7 @@ extension ViewController: NMapViewDelegate {
     func onMapView(_ mapView: NMapView!, initHandler error: NMapError!) {
         if (error == nil) { // success
             // set map center and level
-            mapView.setMapCenter(NGeoPoint(longitude:126.52916660000005, latitude:33.3616666), atLevel:4)
+            mapView.setMapCenter(NGeoPoint(longitude:126.52916660000005, latitude:33.3616666), atLevel:5)
             // set for retina display
             mapView.setMapEnlarged(true, mapHD: true)
             // set map mode : vector/satelite/hybrid
@@ -24,17 +24,29 @@ extension ViewController: NMapViewDelegate {
     }
     
     func addMarker() {
-        guard let rentalList = self.rentalList else { return }
+        guard let centerList = self.centerList else { return }
         
         if let mapOverlayManager = mapView?.mapOverlayManager {
             
             if let poiDataOverlay = mapOverlayManager.newPOIdataOverlay() {
                 
-                poiDataOverlay.initPOIdata(Int32(rentalList.count))
+                poiDataOverlay.initPOIdata(Int32(centerList.count))
                 
-                for (idx, rental) in rentalList.enumerated() {
-                    let markerLocation = NGeoPoint(longitude: rental.longitude, latitude: rental.latitude)
-                    let poiItem = poiDataOverlay.addPOIitem(atLocation: markerLocation, title: rental.name, type: UserPOIflagTypeDefault, iconIndex: Int32(idx), with: nil)
+                for (idx, center) in centerList.enumerated() {
+                    let markerLocation = NGeoPoint(longitude: center._longitude, latitude: center._latitude)
+                    var poiItem: NMapPOIitem?
+                    
+                    if let rental = center as? Rental {
+                        print(rental.payType)
+                        switch rental.payType {
+                        case "무료충전소":
+                            poiItem = poiDataOverlay.addPOIitem(atLocation: markerLocation, title: center._name, type: UserPOIflagTypeDefault, iconIndex: Int32(idx), with: nil)
+                        default:
+                            poiItem = poiDataOverlay.addPOIitem(atLocation: markerLocation, title: center._name, type: UserPOIflagTypePay, iconIndex: Int32(idx), with: nil)
+                        }
+                    } else {
+                        poiItem = poiDataOverlay.addPOIitem(atLocation: markerLocation, title: center._name, type: UserPOIflagTypeCertification, iconIndex: Int32(idx), with: nil)
+                    }
                     
                     poiItem?.setPOIflagMode(.fixed)
                     poiItem?.hasRightCalloutAccessory = false
@@ -46,11 +58,25 @@ extension ViewController: NMapViewDelegate {
                 poiDataOverlay.showAllPOIdata()
             }
         }
+        
+        if let currentLocation = myLocation {
+            mapView?.setMapCenter(currentLocation, atLevel: 9)
+        }
+    }
+    
+    func clearOverlays() {
+        if let mapOverlayManager = mapView?.mapOverlayManager {
+            mapOverlayManager.clearOverlays()
+        }
     }
 }
 
 extension ViewController: NMapPOIdataOverlayDelegate {
     func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, imageForOverlayItem poiItem: NMapPOIitem!, selected: Bool) -> UIImage! {
+        if selected {
+            return #imageLiteral(resourceName: "free_center_click")
+        }
+        
         return NMapViewResources.imageWithType(poiItem.poiFlagType, selected: selected)
     }
     
@@ -110,6 +136,10 @@ extension ViewController: NMapLocationManagerDelegate {
             mapView?.mapOverlayManager.setMyLocation(myLocation, locationAccuracy: locationAccuracy)
             mapView?.setMapCenter(myLocation, atLevel: 9)
             currentLocationFlag = true
+            
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "currentLocation"),
+                                            object: nil,
+                                            userInfo: ["currentLocation": location.coordinate])
         }
     }
     
