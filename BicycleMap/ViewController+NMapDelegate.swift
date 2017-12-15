@@ -23,6 +23,37 @@ extension ViewController: NMapViewDelegate {
         }
     }
     
+    func addCircleAroundMyPosition() {
+        if let mapOverlayManager = mapView?.mapOverlayManager {
+            if let pathDataOverlay = mapOverlayManager.newPathDataOverlay(NMapPathData()) {
+                
+                if let circleData = NMapCircleData(capacity: 1) {
+                    
+                    circleData.initCircleData()
+                    
+                    if let location = myLocation {
+                        circleData.addCirclePointLongitude(location.longitude, latitude: location.latitude, radius: 500.0)
+                    }
+                    circleData.end()
+                    
+                    circleArea = circleData
+                    
+                    // set circle style
+                    if let circleStyle = NMapCircleStyle() {
+                        
+                        circleStyle.setLineType(.solid)
+                        circleStyle.setFillColorWithRed(255/255, green: 173/255, blue: 39/255, alpha: 0.2)
+                        circleStyle.strokeColor = UIColor.clear
+                        circleStyle.strokeWidth = 1.0
+                        circleData.circleStyle = circleStyle
+                    }
+                    circleArea = circleData
+                    pathDataOverlay.add(circleData)
+                }
+            }
+        }
+    }
+    
     func addMarker() {
         guard let centerList = self.centerList else { return }
         
@@ -37,7 +68,6 @@ extension ViewController: NMapViewDelegate {
                     var poiItem: NMapPOIitem?
                     
                     if let rental = center as? Rental {
-                        print(rental.payType)
                         switch rental.payType {
                         case "무료충전소":
                             poiItem = poiDataOverlay.addPOIitem(atLocation: markerLocation, title: center._name, type: UserPOIflagTypeDefault, iconIndex: Int32(idx), with: nil)
@@ -74,9 +104,20 @@ extension ViewController: NMapViewDelegate {
 extension ViewController: NMapPOIdataOverlayDelegate {
     func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, imageForOverlayItem poiItem: NMapPOIitem!, selected: Bool) -> UIImage! {
         if selected {
-            return #imageLiteral(resourceName: "free_center_click")
+            switch poiItem.poiFlagType {
+            case UserPOIflagTypeDefault:
+                poiItem.poiFlagType = UserPOIflagTypeSelected
+                return #imageLiteral(resourceName: "free_center_click")
+            case UserPOIflagTypeCertification:
+                poiItem.poiFlagType = UserPOIflagTypeCertificationSelected
+                return #imageLiteral(resourceName: "certification_center_click")
+            case UserPOIflagTypePay:
+                poiItem.poiFlagType = UserPOIflagTypePaySelected
+                return #imageLiteral(resourceName: "pay_center_click")
+            default: break
+            }
         }
-        
+
         return NMapViewResources.imageWithType(poiItem.poiFlagType, selected: selected)
     }
     
@@ -95,7 +136,16 @@ extension ViewController: NMapPOIdataOverlayDelegate {
     func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, didChangeSelectedPOIitemAt index: Int32, with object: Any!) -> Bool {
         if let prevIdx = prevIndex {
             if let poiItems = poiDataOverlay.poiData() as? [NMapPOIitem] {
-                poiItems[Int(prevIdx)].poiFlagType = UserPOIflagTypeDefault
+                switch poiItems[Int(prevIdx)].poiFlagType {
+                case UserPOIflagTypeSelected:
+                    poiItems[Int(prevIdx)].poiFlagType = UserPOIflagTypeDefault
+                case UserPOIflagTypeCertificationSelected:
+                    poiItems[Int(prevIdx)].poiFlagType = UserPOIflagTypeCertification
+                case UserPOIflagTypePaySelected:
+                    poiItems[Int(prevIdx)].poiFlagType = UserPOIflagTypePay
+                default: break
+                    
+                }
             }
             poiDataOverlay.updateImage(at: prevIdx)
         } else {
@@ -135,6 +185,7 @@ extension ViewController: NMapLocationManagerDelegate {
         
             mapView?.mapOverlayManager.setMyLocation(myLocation, locationAccuracy: locationAccuracy)
             mapView?.setMapCenter(myLocation, atLevel: 9)
+            
             currentLocationFlag = true
             
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "currentLocation"),
